@@ -1,4 +1,12 @@
 Taskmanager::Application.routes.draw do
+  root :to => 'projetos#index'  
+  match 'inicio' => 'projetos#index'
+  
+  match 'projetos/novo' => 'projetos#new'
+  #deve ser a última
+  match ':controller(/:action(/:id(.:format)))'
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -54,5 +62,4 @@ Taskmanager::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
 end

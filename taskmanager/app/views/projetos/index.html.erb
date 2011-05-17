@@ -1,0 +1,16 @@
+<h2>Projetos</h2>
+<div>
+	<table>
+	<tr>
+		<th>Id</th>
+		<th>Nome</th>
+		<th>Descrição</th>
+		<th></th>
+		<th></th>
+	</tr>
+	<%= render :partial => "projeto", :collection => @projetos %>	
+	</table>
+	<p>
+		<%= link_to "Novo Projeto", projeto_novo_path%>
+	</p>	
+</div>
