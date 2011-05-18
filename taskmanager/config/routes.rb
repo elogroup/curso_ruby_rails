@@ -1,8 +1,16 @@
 Taskmanager::Application.routes.draw do
+  resources :colaboradores
+
+  resources :tarefas
+
   root :to => 'projetos#index'  
-  match 'inicio' => 'projetos#index'
+  # match 'inicio' => 'projetos#index'
+  #   
+  #   match 'projetos/novo' => 'projetos#new'
+  #   
+  #   #todos os projetos de anos, meses e dias (todos opcionais) específicos
+  #   match 'projetos(/:ano(/:mes(/:dia)))' => 'projetos#by_data'
   
-  match 'projetos/novo' => 'projetos#new'
   #deve ser a última
   match ':controller(/:action(/:id(.:format)))'
   

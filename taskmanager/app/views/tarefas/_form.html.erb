@@ -1,0 +1,20 @@
+<%= form_for @tarefa do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :descricao %><br />
+    <%= f.text_field :descricao %>
+  </p>
+  <p>
+    <%= f.label :data_finalizacao %><br />
+    <%= f.datetime_select :data_finalizacao %>
+  </p>
+  <p>
+    <%= f.label :colaborador_id %><br />
+    <%= f.text_field :colaborador_id %>
+  </p>
+  <p>
+    <%= f.label :projeto_id %><br />
+    <%= f.text_field :projeto_id %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

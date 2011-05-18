@@ -14,9 +14,9 @@ module ApplicationHelper
   
   def menu_principal
     html = ""
-    html << link_to("Projetos", :controller => :projeto)
+    html << link_to("Projetos", :controller => :projetos)
     html << " | " + link_to("Tarefas", :controller => :tarefas)
-    html << " | " + link_to("Tarefas", :controller => :colaboradores)
+    html << " | " + link_to("Colaboradores", :controller => :colaboradores)
     raw html
   end
 end

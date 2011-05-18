@@ -1,0 +1,17 @@
+<% title "Colaboradores" %>
+
+<table>
+  <tr>
+    <th>Nome</th>
+  </tr>
+  <% for colaborador in @colaboradores %>
+    <tr>
+      <td><%= colaborador.nome %></td>
+      <td><%= link_to "Show", colaborador %></td>
+      <td><%= link_to "Edit", edit_colaborador_path(colaborador) %></td>
+      <td><%= link_to "Destroy", colaborador, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Colaborador", new_colaborador_path %></p>
