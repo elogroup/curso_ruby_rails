@@ -1,5 +1,5 @@
-<% title "New Tarefa" %>
+<% title "Nova Tarefa" %>
 
 <%= render 'form' %>
 
-<p><%= link_to "Back to List", tarefas_path %></p>
+<p><%= link_to "Back to List", projeto_tarefas_path(@tarefa.projeto) %></p>

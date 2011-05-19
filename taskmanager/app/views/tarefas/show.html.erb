@@ -18,7 +18,7 @@
 </p>
 
 <p>
-  <%= link_to "Edit", edit_tarefa_path(@tarefa) %> |
-  <%= link_to "Destroy", @tarefa, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", tarefas_path %>
+  <%= link_to "Editar", edit_projeto_tarefa_path(@tarefa.projeto, @tarefa) %> |
+  <%= link_to "Deletar", projeto_tarefa_path(@tarefa.projeto, @tarefa), :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "Voltar", projeto_path(@tarefa.projeto) %>
 </p>

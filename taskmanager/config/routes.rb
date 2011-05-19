@@ -1,8 +1,13 @@
 Taskmanager::Application.routes.draw do
   resources :colaboradores
-
-  resources :tarefas
-
+  
+  #tarefas devem sempre estar dentro de projetos
+  #resources :tarefas
+  
+  resources :projetos do
+    resources :tarefas
+  end
+  
   root :to => 'projetos#index'  
   # match 'inicio' => 'projetos#index'
   #   
@@ -12,7 +17,7 @@ Taskmanager::Application.routes.draw do
   #   match 'projetos(/:ano(/:mes(/:dia)))' => 'projetos#by_data'
   
   #deve ser a última
-  match ':controller(/:action(/:id(.:format)))'
+  #match ':controller(/:action(/:id(.:format)))'
   
   
   # The priority is based upon order of creation:

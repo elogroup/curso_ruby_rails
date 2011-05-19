@@ -1,20 +1,19 @@
-<%= form_for @tarefa do |f| %>
+<%= form_for [@projeto, @tarefa] do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label :descricao %><br />
-    <%= f.text_field :descricao %>
-  </p>
-  <p>
-    <%= f.label :data_finalizacao %><br />
-    <%= f.datetime_select :data_finalizacao %>
-  </p>
+    <%= f.text_area :descricao, :rows => 10, :cols => 100 %>
+  </p> 
   <p>
     <%= f.label :colaborador_id %><br />
-    <%= f.text_field :colaborador_id %>
+    <%= f.collection_select :colaborador_id, Colaborador.order(:nome), :id, :nome, :include_blank => "Por Favor, Selecione" %>
   </p>
   <p>
-    <%= f.label :projeto_id %><br />
-    <%= f.text_field :projeto_id %>
+	<%= f.label "Projeto" %><br />
+	<%= f.hidden_field :projeto_id%>
+	<strong><%= @projeto.nome %></strong>
+  <p>
+  <p>
+	<%= f.submit %>
   </p>
-  <p><%= f.submit %></p>
 <% end %>

@@ -11,7 +11,18 @@
 	<strong>Data Início:</strong>
 	<%= @projeto.data_inicio %>
 </p>
+<hr/>
+<div id='todo'>
+	<h2>Tarefas em Aberto</h2>
+	<%= render :partial => 'tarefas', :object => @projeto.tarefas_para_fazer %>
+</div>
+<hr/>
+<div id='ongoing'>
+	<h2>Tarefas em Andamento</h2>
+	<%= render :partial => 'tarefas', :object => @projeto.tarefas_em_andamento %>
+</div>
+<p></p>
 <p>
-<p>
+	<%= link_to "Criar Tarefa", new_projeto_tarefa_path(@projeto)%> |
 	<%= link_to "Voltar para Lista", :action => :index%>	
 </p>

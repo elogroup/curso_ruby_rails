@@ -4,4 +4,7 @@
 	<td><%= projeto.descricao %></td>
 	<td><%= link_to "Remover", :action => :destroy, :id => projeto.id %></td>
 	<td><%= link_to "Visualizar Detalhes", :action => :show, :id => projeto.id %></td>
+	<!--> VAMOS FAZER MELHOR QUE ISSO... 
+	 link_to "Tarefas do Projeto", projeto_tarefas_path(projeto) 
+	-->	
 </tr>

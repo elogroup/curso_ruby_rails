@@ -3,6 +3,8 @@ class ProjetosController < ApplicationController
   #after_filter :log_depois
   #around_filter :log_total
   
+  respond_to :html, :xml
+  
   def new
     @projeto = Projeto.new
   end
@@ -22,6 +24,7 @@ class ProjetosController < ApplicationController
   #exibir lista de projetos
   def index
     @projetos = Projeto.all
+    respond_with @projetos
   end
   
   def destroy
@@ -31,7 +34,7 @@ class ProjetosController < ApplicationController
   
   def show
     @projeto = Projeto.find params[:id]
-    render :action => :show
+    respond_with @projeto   
   end
   
   private

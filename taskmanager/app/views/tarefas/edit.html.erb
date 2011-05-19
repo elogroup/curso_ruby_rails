@@ -3,6 +3,6 @@
 <%= render 'form' %>
 
 <p>
-  <%= link_to "Show", @tarefa %> |
-  <%= link_to "View All", tarefas_path %>
+  <%= link_to "Mostrar", projeto_tarefa_path(@tarefa.projeto, @tarefa) %> |
+  <%= link_to "Voltar", projeto_path(@tarefa.projeto) %>
 </p>
