@@ -2,7 +2,7 @@
 class Banco
   
   def contas
-    []
+    @contas ||= []
   end
   
 end

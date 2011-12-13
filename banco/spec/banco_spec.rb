@@ -5,7 +5,12 @@ describe Banco do
   
   it { subject.should respond_to :contas }  
 
-  it "deve ser possivel incliur uma conta"
+  it "deve ser possivel incluir uma conta" do
+    conta = Conta.new :agencia => 10, :numero => 20
+    subject.contas << conta
+    subject.contas.should have(1).item
+    subject.contas.should include(conta)
+  end
   
   it "deve ser possivel remover uma conta"
 
