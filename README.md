@@ -5,9 +5,9 @@ Curso Ruby on Rails
   
 Aula 1
 ========
-  Introducao a Ruby
-    varivaeis, métodos, if, classes, irb, array, hash, bang
-  Testes Unitários com RSpec (BDD)
-    describe, it, context, should e etc..
-  Criação do modelo de Conta
-    Classes abertas, metaprogramacao, parametros opcionais, excecoes, metodos acesores, atributos
+  Introducao a Ruby  
+    varivaeis, métodos, if, classes, irb, array, hash, bang  
+  Testes Unitários com RSpec (BDD)  
+    describe, it, context, should e etc..  
+  Criação do modelo de Conta  
+    Classes abertas, metaprogramacao, parametros opcionais, excecoes, metodos acesores, atributos  
