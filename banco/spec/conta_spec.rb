@@ -74,19 +74,19 @@ describe Conta do
     
     it "deve ser possivel transferir valores de uma conta para outra conta" do
       outra_conta = Conta.new :agencia => 30, :numero => 43
-      subject.transfere 80, outra_conta
+      subject.transfere_para :conta_destino => outra_conta, :valor => 80
       subject.saldo.should == 20
       outra_conta.saldo.should == 80
     end
     
     it "nao deve ser possivel transferir valores superiores ao saldo da conta origem" do
       outra_conta = Conta.new :agencia => 30, :numero => 43
-      expect{ subject.transfere 1000, outra_conta }.to raise_error(SaldoInsuficienteError)
+      expect{ subject.transfere_para :conta_destino => outra_conta, :valor => 1000 }.to raise_error(SaldoInsuficienteError)
     end
 
     it "nao deve ser possivel transferir valores negativos" do
       outra_conta = Conta.new :agencia => 30, :numero => 43
-      expect{ subject.transfere -1000, outra_conta }.to raise_error(ArgumentError)
+      expect{ subject.transfere_para :conta_destino => outra_conta, :valor => -100 }.to raise_error(ArgumentError)
     end
 
 

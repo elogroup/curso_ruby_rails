@@ -27,9 +27,11 @@ class Conta
     @saldo -= valor
   end
   
-  def transfere(valor,destino)
+  def transfere_para(values = {})
+    valor = values[:valor]
+    conta_destino = values[:conta_destino]
     saca(valor)
-    destino.deposita(valor)
+    conta_destino.deposita(valor)
   end
   
   private
