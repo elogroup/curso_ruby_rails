@@ -1,6 +1,5 @@
 #encoding: utf-8
-require '../lib/conta'
-require '../lib/conta_errors'
+require 'spec_helper'
 
 describe Conta do
   context "Initialize" do
@@ -72,6 +71,24 @@ describe Conta do
     it "não deve ser possivel sacar valores maiores que o saldo disponível" do
       expect { subject.saca 200 }.to raise_error(SaldoInsuficienteError)
     end
+    
+    it "deve ser possivel transferir valores de uma conta para outra conta" do
+      outra_conta = Conta.new :agencia => 30, :numero => 43
+      subject.transfere 80, outra_conta
+      subject.saldo.should == 20
+      outra_conta.saldo.should == 80
+    end
+    
+    it "nao deve ser possivel transferir valores superiores ao saldo da conta origem" do
+      outra_conta = Conta.new :agencia => 30, :numero => 43
+      expect{ subject.transfere 1000, outra_conta }.to raise_error(SaldoInsuficienteError)
+    end
+
+    it "nao deve ser possivel transferir valores negativos" do
+      outra_conta = Conta.new :agencia => 30, :numero => 43
+      expect{ subject.transfere -1000, outra_conta }.to raise_error(ArgumentError)
+    end
+
 
   end
   

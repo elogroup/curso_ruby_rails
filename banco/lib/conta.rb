@@ -27,6 +27,11 @@ class Conta
     @saldo -= valor
   end
   
+  def transfere(valor,destino)
+    saca(valor)
+    destino.deposita(valor)
+  end
+  
   private
     #daqui pra baixo tudo é privado
     def valida_presenca_de(valor, msg = "")
