@@ -16,6 +16,18 @@ class Banco
   def localiza_conta_por_numero(numero)
     localiza_conta{|c| c.numero == numero }      
   end
+
+  #banco.procura_conta_por_saldo 200
+  #banco.procura_conta_por_agencia 20
+  def method_missing(name, *args, &block)
+    if name =~ /localiza_conta_por_(.*)/ 
+      attribute = $1
+      value = args.first
+      localiza_conta{|c| c.send(attribute) == value}
+    else
+      raise NoMethodError, "undefined method: " + name
+    end
+  end
   
   private
     def localiza_conta(&criterio)

@@ -24,7 +24,7 @@ describe Banco do
     before(:all) do
       numero = 20
       %w(Joao Maria Marcos Ze Luiz Antonio).each do |nome|
-        conta = Conta.new :agencia => 10, :numero => numero, :titular => nome
+        conta = Conta.new :agencia => 10, :numero => numero, :titular => nome, :saldo => numero * 10
         subject.contas << conta
         numero += 1
       end
@@ -41,6 +41,13 @@ describe Banco do
       conta_localizada.titular.should == 'Joao'
       subject.localiza_conta_por_numero(22).titular.should == 'Marcos'
     end
+    
+    it "deve ser possivel buscar uma conta por qualquer atributo da mesma" do
+      subject.localiza_conta_por_numero(24).titular.should == 'Luiz'
+      subject.localiza_conta_por_nome('Ze').titular.should == 'Ze'
+      subject.localiza_conta_por_saldo(220).titular.should == 'Marcos'
+      subject.localiza_conta_por_agencia(10).titular.should == 'Joao'
+    end
   end
   
   context "lista de contas" do
@@ -50,3 +57,6 @@ describe Banco do
   
   
 end
+
+
+
