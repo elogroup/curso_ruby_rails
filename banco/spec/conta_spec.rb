@@ -1,4 +1,6 @@
+#encoding: utf-8
 require '../lib/conta'
+require '../lib/conta_errors'
 
 describe Conta do
   context "Initialize" do
@@ -48,6 +50,38 @@ describe Conta do
     it { subject.agencia.should == 30 }    
     it { subject.saldo.should == 100 }  
     it { subject.titular.should == "Joao" }
+
+    it "deve ser possivel realizar um deposito em uma conta" do
+      subject.deposita 80
+      subject.saldo.should == 180
+    end
+    
+    it "não deve ser possivel realizar depositos de valores negativos" do
+      expect{ subject.deposita -40 }.to raise_error(ArgumentError)
+    end
+    
+    it "deve ser possivel realizar saques em uma conta" do
+      subject.saca 80
+      subject.saldo.should == 20
+    end
+
+    it "não deve ser possivel realizar saques de valores negativos" do
+      expect{ subject.saca -40 }.to raise_error(ArgumentError)
+    end
+    
+    it "não deve ser possivel sacar valores maiores que o saldo disponível" do
+      expect { subject.saca 200 }.to raise_error(SaldoInsuficienteError)
+    end
+
   end
   
+  
+  
 end
+
+
+
+
+
+
+
