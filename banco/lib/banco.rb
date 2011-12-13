@@ -9,14 +9,6 @@ class Banco
     # para resolver vc vai precisar incluir novos metodos em banco que incluam e removam contas
   end
   
-  def localiza_conta_por_nome(nome)
-    localiza_conta{|c| c.titular == nome }
-  end
-  
-  def localiza_conta_por_numero(numero)
-    localiza_conta{|c| c.numero == numero }      
-  end
-
   #banco.procura_conta_por_saldo 200
   #banco.procura_conta_por_agencia 20
   def method_missing(name, *args, &block)
