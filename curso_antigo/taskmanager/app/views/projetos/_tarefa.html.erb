@@ -1,8 +1,0 @@
-<tr>
-  <td><%= tarefa.descricao %></td>
-  <td><%= tarefa.data_finalizacao %></td>
-  <td><%= tarefa.responsavel ? tarefa.responsavel.nome : 'Sem Responsável' %></td> 
-  <td><%= link_to "Show", projeto_tarefa_path(tarefa.projeto.id, tarefa.id) %></td>
-  <td><%= link_to "Edit", edit_projeto_tarefa_path(tarefa.projeto.id, tarefa.id) %></td>
-  <td><%= link_to "Destroy", projeto_tarefa_path(tarefa.projeto.id, tarefa.id), :confirm => 'Are you sure?', :method => :delete %></td> 
-</tr>
