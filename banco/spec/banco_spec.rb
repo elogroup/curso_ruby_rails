@@ -11,8 +11,14 @@ describe Banco do
     subject.contas.should have(1).item
     subject.contas.should include(conta)
   end
-  
-  it "deve ser possivel remover uma conta"
+
+  it "deve ser possivel remover uma conta" do
+    conta = Conta.new :agencia => 10, :numero => 20
+    subject.contas << conta
+    subject.contas.delete conta
+    subject.contas.should be_empty
+    subject.contas.should_not include(conta)    
+  end
 
   context "lista de contas" do
     subject{ Banco.new }
