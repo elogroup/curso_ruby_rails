@@ -20,6 +20,11 @@ describe Tarefa do
     it "nao deve permitir que uma tarefa sem descricao seja salva" do
       tarefa = Tarefa.new
       tarefa.save.should be_false
+    end
+
+    it "uma tarefa sem descricao deve apresentar o erro 'Deve ser preenchido'" do
+      tarefa = Tarefa.new
+      tarefa.save
       tarefa.errors[:descricao].should include("Deve ser preenchido")
     end
 

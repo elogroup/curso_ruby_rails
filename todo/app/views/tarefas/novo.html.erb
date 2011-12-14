@@ -1,6 +1,13 @@
 <h3> Nova Tarefa </h3>
 
-<%= form_for :tarefa, :url => '/tarefas/create' do |f| %>
+<div class="form-error">
+	<% @tarefa.errors.full_messages.each do |msg| %>
+		<p><%= msg %></p>
+	<% end %>
+</div>
+
+
+<%= form_for @tarefa, :url => '/tarefas/create' do |f| %>
 	<p>Projeto: <%= f.text_field :projeto %></p>
 	<p>Responsavel: <%= f.text_field :responsavel %></p>
 	Descricao:
