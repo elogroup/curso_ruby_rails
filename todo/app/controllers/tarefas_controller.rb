@@ -5,9 +5,7 @@ class TarefasController < ApplicationController
   end
   
   def create
-    tarefa = Tarefa.new :projeto => params[:projeto], 
-                        :responsavel => params[:responsavel], 
-                        :descricao => params[:descricao]
+    tarefa = Tarefa.new params[:tarefa]
     tarefa.save
   end
   

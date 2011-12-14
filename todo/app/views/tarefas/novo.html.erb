@@ -1,8 +1,9 @@
 <h3> Nova Tarefa </h3>
 
-<form action="/tarefas/create">
-	Projeto: <input name='projeto'/> <br/>
-	Responsavel: <input name='responsavel'/> <br/>
-	Descricao: <textarea name='descricao' cols="60" rows="3"></textarea> <br/>
-	<input type='submit' value = 'Gravar'> <br/>
-</form>
+<%= form_for :tarefa, :url => '/tarefas/create' do |f| %>
+	<p>Projeto: <%= f.text_field :projeto %></p>
+	<p>Responsavel: <%= f.text_field :responsavel %></p>
+	Descricao:
+	<p><%= f.text_area :descricao %></p>
+	<%= f.submit %>
+<% end %>
