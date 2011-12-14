@@ -16,6 +16,20 @@ describe Tarefa do
     it { should respond_to :created_at }
   end
   
+  context "Validacao" do
+    it "nao deve permitir que uma tarefa sem descricao seja salva" do
+      tarefa = Tarefa.new
+      tarefa.save.should be_false
+      tarefa.errors[:descricao].should include("Deve ser preenchido")
+    end
+
+    it "nao deve permitir que uma tarefa sem projeto seja salva" do
+      tarefa = Tarefa.new
+      tarefa.save.should be_false
+      tarefa.errors[:projeto].should include("Deve ser preenchido")      
+    end
+  end
+  
   context "Persistencia" do
     subject{ Tarefa.new }
     it "deve gravar uma nova tarefa no banco" do
