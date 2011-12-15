@@ -1,6 +1,7 @@
 Todo::Application.routes.draw do
   root :to => 'tarefas#index'
   resources :tarefas, :except => [:show]
+  
   # match 'tarefas/novo', :controller => :tarefas, :action => :novo, :as => 'nova_tarefa'
   # match 'tarefas/create', :controller => :tarefas, :action => :create
   # match 'tarefas/index' => 'tarefas#index'
