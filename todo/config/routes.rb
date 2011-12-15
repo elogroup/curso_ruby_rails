@@ -1,11 +1,12 @@
 Todo::Application.routes.draw do
-  
-  match 'tarefas/novo', :controller => :tarefas, :action => :novo, :as => 'nova_tarefa'
-  match 'tarefas/create', :controller => :tarefas, :action => :create
-  match 'tarefas/index' => 'tarefas#index'
-  match 'tarefas/edit/:id' => 'tarefas#edit', :as => 'tarefas_edit'
-  match 'tarefas/update/:id' => 'tarefas#update', :as => 'tarefas_update'
-  match 'tarefas/destroy/:id' => 'tarefas#destroy', :as => 'tarefas_destroy'
+  root :to => 'tarefas#index'
+  resources :tarefas, :except => [:show]
+  # match 'tarefas/novo', :controller => :tarefas, :action => :novo, :as => 'nova_tarefa'
+  # match 'tarefas/create', :controller => :tarefas, :action => :create
+  # match 'tarefas/index' => 'tarefas#index'
+  # match 'tarefas/edit/:id' => 'tarefas#edit', :as => 'tarefas_edit'
+  # match 'tarefas/update/:id' => 'tarefas#update', :as => 'tarefas_update'
+  # match 'tarefas/destroy/:id' => 'tarefas#destroy', :as => 'tarefas_destroy'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

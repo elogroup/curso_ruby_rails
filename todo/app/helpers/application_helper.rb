@@ -5,8 +5,8 @@ module ApplicationHelper
     html = "<div id='menu'>"
     html << '<ul>'
     opcoes.each do |op|
-      if respond_to?("#{op}_index_path")
-        link = link_to op.capitalize, send("#{op}_index_path")
+      if respond_to?("#{op}_path")
+        link = link_to op.capitalize, send("#{op}_path")
       else
         link = link_to op.capitalize, '#'
       end
