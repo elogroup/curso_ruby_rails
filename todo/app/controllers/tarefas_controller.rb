@@ -31,4 +31,22 @@ class TarefasController < ApplicationController
     end
   end
   
+  def destroy
+    Tarefa.destroy params[:id]
+    redirect_to :action => :index
+  end
+  
 end
+
+
+
+
+
+
+
+
+
+
+
+
+

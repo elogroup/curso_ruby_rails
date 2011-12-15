@@ -10,13 +10,15 @@
 			<th>Responsavel</th>
 			<th>Projeto</th>
 			<th></th>
+			<th></th>
 		</tr>
 		<% @tarefas.each do |tarefa| %>
 			<tr>
 				<td><%= tarefa.descricao %></td>
 				<td><%= tarefa.responsavel %></td>
 				<td><%= tarefa.projeto%></td>
-				<td><%= link_to 'Alterar', tarefas_edit_path(tarefa) %>
+				<td><%= link_to 'Alterar', tarefas_edit_path(tarefa) %></td>
+				<td><%= link_to 'Remover', tarefas_destroy_path(tarefa)%></td>
 			</tr>
 		<%end%>		
 	</table>	

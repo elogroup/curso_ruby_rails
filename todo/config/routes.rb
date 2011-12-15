@@ -5,6 +5,7 @@ Todo::Application.routes.draw do
   match 'tarefas/index' => 'tarefas#index'
   match 'tarefas/edit/:id' => 'tarefas#edit', :as => 'tarefas_edit'
   match 'tarefas/update/:id' => 'tarefas#update', :as => 'tarefas_update'
+  match 'tarefas/destroy/:id' => 'tarefas#destroy', :as => 'tarefas_destroy'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
