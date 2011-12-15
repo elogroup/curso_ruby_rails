@@ -16,7 +16,7 @@
 			<tr>
 				<td><%= tarefa.descricao %></td>
 				<td><%= tarefa.responsavel %></td>
-				<td><%= tarefa.projeto%></td>
+				<td><%= nome_projeto tarefa.projeto %></td>
 				<td><%= link_to 'Alterar', edit_tarefa_path(tarefa) %></td>
 				<td><%= link_to 'Remover', tarefa, :method => :delete %></td>
 			</tr>

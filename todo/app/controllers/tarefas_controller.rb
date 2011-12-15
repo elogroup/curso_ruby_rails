@@ -1,8 +1,9 @@
 # encoding: UTF-8
 class TarefasController < ApplicationController
   
-  def novo
+  def new
     @tarefa = Tarefa.new
+    render 'novo'
   end
   
   def create
@@ -17,7 +18,7 @@ class TarefasController < ApplicationController
   end
   
   def index
-    @tarefas = Tarefa.order(:projeto)    
+    @tarefas = Tarefa.all    
   end
   
   def edit

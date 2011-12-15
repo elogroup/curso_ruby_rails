@@ -1,0 +1,13 @@
+<div>
+	<dl>
+	  <dt><%= label_tag 'Nome:'%></dt>
+	  <dd><%= @projeto.nome %></dd>
+	  <dt><%= label_tag 'Responsavel:'%></dt>
+  	  <dd><%= @projeto.responsavel %></dd>
+	  <dt><%= label_tag 'Enterga prevista para:'%></dt>
+	  <dd><%= @projeto.data_entrega %></dd>
+    </dl>	  
+</div>
+<%= link_to 'Tarefas', '#' %>
+<%= link_to 'Editar', edit_projeto_path(@projeto) %> |
+<%= link_to 'voltar', projetos_path %>

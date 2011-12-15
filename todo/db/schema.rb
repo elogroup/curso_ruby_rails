@@ -11,15 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111214162223) do
+ActiveRecord::Schema.define(:version => 20111215192654) do
+
+  create_table "projetos", :force => true do |t|
+    t.string   "nome"
+    t.date     "data_entrega"
+    t.string   "responsavel"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tarefas", :force => true do |t|
     t.text     "descricao"
     t.date     "data_finalizacao"
     t.string   "responsavel"
-    t.string   "projeto"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "projeto_id"
   end
 
 end
