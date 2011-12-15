@@ -1,0 +1,7 @@
+<%= form_for tarefa, :url => url do |f| %>
+	<p>Projeto: <%= f.text_field :projeto %></p>
+	<p>Responsavel: <%= f.text_field :responsavel %></p>
+	Descricao:
+	<p><%= f.text_area :descricao %></p>
+	<%= f.submit %>
+<% end %>

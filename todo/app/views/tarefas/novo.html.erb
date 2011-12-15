@@ -6,11 +6,4 @@
 	<% end %>
 </div>
 
-
-<%= form_for @tarefa, :url => tarefas_create_path do |f| %>
-	<p>Projeto: <%= f.text_field :projeto %></p>
-	<p>Responsavel: <%= f.text_field :responsavel %></p>
-	Descricao:
-	<p><%= f.text_area :descricao %></p>
-	<%= f.submit %>
-<% end %>
+<%= render :partial => 'form', :locals => {:tarefa => @tarefa, :url => tarefas_create_path} %>
