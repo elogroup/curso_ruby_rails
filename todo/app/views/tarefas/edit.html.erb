@@ -1,4 +1,4 @@
-<h3> Nova Tarefa </h3>
+<h3> Altera Tarefa: <%=@tarefa.id%> </h3>
 
 <div class="form-error">
 	<% @tarefa.errors.full_messages.each do |msg| %>
@@ -7,7 +7,7 @@
 </div>
 
 
-<%= form_for @tarefa, :url => tarefas_create_path do |f| %>
+<%= form_for @tarefa, :url => tarefas_update_path(@tarefa) do |f| %>
 	<p>Projeto: <%= f.text_field :projeto %></p>
 	<p>Responsavel: <%= f.text_field :responsavel %></p>
 	Descricao:
