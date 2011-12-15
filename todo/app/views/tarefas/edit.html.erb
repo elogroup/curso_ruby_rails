@@ -1,9 +1,4 @@
 <h3> Altera Tarefa: <%=@tarefa.id%> </h3>
 
-<div class="form-error">
-	<% @tarefa.errors.full_messages.each do |msg| %>
-		<p><%= msg %></p>
-	<% end %>
-</div>
-
+<%= render :partial => 'shared/mensagem_erro', :object => @tarefa %>
 <%= render :partial => 'form', :locals => {:tarefa => @tarefa, :url => tarefas_update_path(@tarefa)} %>
