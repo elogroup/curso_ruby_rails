@@ -8,6 +8,10 @@
 	  <dd><%= @projeto.data_entrega %></dd>
     </dl>	  
 </div>
-<%= link_to 'Tarefas', '#' %>
+<h3> Tarefas </h3>
+
+	<%= render :partial => 'tarefas/lista_tarefa', :object => @projeto.tarefas %>
+
+<br/>
 <%= link_to 'Editar', edit_projeto_path(@projeto) %> |
 <%= link_to 'voltar', projetos_path %>
