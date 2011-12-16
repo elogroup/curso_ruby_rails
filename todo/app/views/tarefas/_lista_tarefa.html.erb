@@ -13,7 +13,7 @@
 				<td><%= tarefa.responsavel %></td>
 				<td><%= nome_projeto tarefa.projeto %></td>
 				<td><%= link_to 'Alterar', edit_projeto_tarefa_path(tarefa.projeto, tarefa) %></td>
-				<td><%= link_to 'Remover', projeto_tarefa_path(tarefa.projeto,tarefa, :method => :delete) %></td>
+				<td><%= link_to 'Remover', projeto_tarefa_path(tarefa.projeto,tarefa), :remote => true, :method => :delete %></td>
 			</tr>
 		<%end%>		
 	</table>	
