@@ -1,6 +1,6 @@
 <h2> Lista de Tarefas </h2>
 
-<%= link_to 'Nova Tarefa', new_tarefa_path %>
+<%= link_to 'Nova Tarefa', new_projeto_tarefa_path(params[:projeto_id]) %>
 <br/>
 <br/>
 <div id="resutlado">
@@ -17,8 +17,8 @@
 				<td><%= tarefa.descricao %></td>
 				<td><%= tarefa.responsavel %></td>
 				<td><%= nome_projeto tarefa.projeto %></td>
-				<td><%= link_to 'Alterar', edit_tarefa_path(tarefa) %></td>
-				<td><%= link_to 'Remover', tarefa, :method => :delete %></td>
+				<td><%= link_to 'Alterar', edit_projeto_tarefa_path(params[:projeto_id], tarefa) %></td>
+				<td><%= link_to 'Remover', projeto_tarefa_path(params[:projeto_id],tarefa, :method => :delete) %></td>
 			</tr>
 		<%end%>		
 	</table>	

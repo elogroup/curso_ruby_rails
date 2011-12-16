@@ -18,7 +18,7 @@ class TarefasController < ApplicationController
   end
   
   def index
-    @tarefas = Tarefa.all    
+    @tarefas = Tarefa.do_projeto params[:projeto_id]
   end
   
   def edit
