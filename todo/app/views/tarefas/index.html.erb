@@ -1,6 +1,16 @@
 <h2> Lista de Tarefas </h2>
 
-<%= link_to 'Nova Tarefa', new_projeto_tarefa_path(params[:projeto_id]) %>
+<div id="form_tarefa">
+	<%= link_to 'Nova Tarefa', '#', :id => 'cria_nova_tarefa' %>
+	<div style="display:none">
+		<h2>Teste</h2>
+		<%= link_to 'cancela', '#', :id =>'nova_tarefa_cancela' %>
+	</div>
+</div>
 <br/>
 <br/>
 <%= render :partial => 'lista_tarefa', :object => @tarefas %>
+
+<%=content_for :js do%>
+	<%= javascript_include_tag "nova_tarefa" %>
+<%end%>
