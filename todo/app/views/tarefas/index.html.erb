@@ -3,13 +3,16 @@
 <div id="form_tarefa">
 	<%= link_to 'Nova Tarefa', '#', :id => 'cria_nova_tarefa' %>
 	<div style="display:none">
-		<h2>Teste</h2>
+		<%=render :partial => 'tarefas/form', :locals => {:tarefa => Tarefa.new(:projeto_id => @projeto.id)}%>
 		<%= link_to 'cancela', '#', :id =>'nova_tarefa_cancela' %>
 	</div>
 </div>
 <br/>
 <br/>
-<%= render :partial => 'lista_tarefa', :object => @tarefas %>
+
+<div id="resutlado">
+	<%= render :partial => 'lista_tarefa', :object => @tarefas %>
+</div>
 
 <%=content_for :js do%>
 	<%= javascript_include_tag "nova_tarefa" %>

@@ -1,27 +1,26 @@
-<div id="resutlado">
-	<table>
-		<tr>
-			<th>Descricao</th>
-			<th>Responsavel</th>
-			<th>Projeto</th>
-			<th></th>
-			<th></th>
+
+<table>
+	<tr>
+		<th>Descricao</th>
+		<th>Responsavel</th>
+		<th>Projeto</th>
+		<th></th>
+		<th></th>
+	</tr>
+	<% lista_tarefa.each do |tarefa| %>
+		<tr id="tarefa_<%=tarefa.id%>">
+			<td><%= tarefa.descricao %></td>
+			<td><%= tarefa.responsavel %></td>
+			<td><%= nome_projeto tarefa.projeto %></td>
+			<td><%= link_to 'Alterar', edit_projeto_tarefa_path(tarefa.projeto, tarefa) %></td>
+			<td>
+				<%= link_to 'Remover', projeto_tarefa_path(tarefa.projeto,tarefa), 
+				  	:remote => true, :method => :delete, 
+						:class => 'remove-tarefa', 'data-elemento_id' => "tarefa_#{tarefa.id}" %>
+			</td>
 		</tr>
-		<% lista_tarefa.each do |tarefa| %>
-			<tr id="tarefa_<%=tarefa.id%>">
-				<td><%= tarefa.descricao %></td>
-				<td><%= tarefa.responsavel %></td>
-				<td><%= nome_projeto tarefa.projeto %></td>
-				<td><%= link_to 'Alterar', edit_projeto_tarefa_path(tarefa.projeto, tarefa) %></td>
-				<td>
-					<%= link_to 'Remover', projeto_tarefa_path(tarefa.projeto,tarefa), 
-					  	:remote => true, :method => :delete, 
-							:class => 'remove-tarefa', 'data-elemento_id' => "tarefa_#{tarefa.id}" %>
-				</td>
-			</tr>
-		<%end%>		
-	</table>	
-</div>
+	<%end%>		
+</table>	
 
 <%=content_for :js do%>
 	<%= javascript_include_tag "tarefas" %>

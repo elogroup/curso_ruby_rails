@@ -1,5 +1,7 @@
-<%= form_for tarefa do |f| %>
-<p>Projeto: <%= f.label nome_projeto(tarefa.projeto) %></p>
+
+<%= form_for [:projeto,tarefa], :html => {:id =>'form_projeto_tarefa'}, :remote => :true do |f| %>
+<%=f.hidden_field :projeto_id %>
+	<p>Projeto: <%= f.label nome_projeto(tarefa.projeto) %></p>	
 	<p>Responsavel: <%= f.text_field :responsavel %></p>
 	Descricao:
 	<p><%= f.text_area :descricao %></p>

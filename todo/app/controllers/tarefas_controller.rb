@@ -8,17 +8,26 @@ class TarefasController < ApplicationController
   
   def create
     @tarefa = Tarefa.new params[:tarefa]
-    if !@tarefa.save
-      flash[:error] = "Existem erros que impedem a inclusão"
-      render :action => :novo
-    else
-      flash[:notice] = "Tarefa #{params[:id]} criada com sucesso"
-      redirect_to :action => :index
+    respond_to do |format|
+      if !@tarefa.save
+        flash[:error] = "Existem erros que impedem a inclusão"
+        render :action => :novo
+      else
+        format.html { redirect_to :action => :index, notice: "Tarefa #{params[:id]} criada com sucesso" }
+        format.js
+        format.json { render json: @tarefa}
+      end      
     end
   end
   
   def index
-    @tarefas = Tarefa.do_projeto params[:projeto_id]
+    @projeto = Projeto.find params[:projeto_id]
+    @tarefas = @projeto.tarefas
+    respond_to do |format|
+      format.html
+      format.json { render json: @tarefas }
+      format.xml { render xml: @tarefas }
+    end
   end
   
   def edit
