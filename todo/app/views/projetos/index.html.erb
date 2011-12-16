@@ -18,7 +18,9 @@
 	<td><%=projeto.responsavel%></td>
 	<td><%=projeto.data_entrega%></td>
     <td><%= link_to 'Altera', edit_projeto_path(projeto) %></td>
-    <td><%= link_to 'Remove', projeto, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Remove', projeto,
+		 	confirm: 'Are you sure?' %>
+	</td>
   </tr>
 <% end %>
 </table>
