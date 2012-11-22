@@ -21,11 +21,18 @@ describe Conta do
     end
 
     it "nao deve ser possivel criar conta sem informar o numero" do
-       expect { Conta.new :agencia 10 }.to raise_error(ArgumentError)
+       expect { Conta.new agencia: 10 }.to raise_error(ArgumentError)
     end
 
     it "nao deve ser possivel criar conta sem informar o agencia" do
        expect { Conta.new numero: 1}.to raise_error(ArgumentError)
+       # error = nil
+       # begin
+       #   Conta.new
+       # rescue => e
+       #  error = e
+       # end
+       # error.should be_an(ArgumentError)
     end
 
   end

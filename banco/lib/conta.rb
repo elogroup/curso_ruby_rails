@@ -5,6 +5,7 @@ class Conta
 
   def initialize(args = {})
     raise ArgumentError, "falta informar o numero da conta" if args[:numero].nil?
+    raise ArgumentError, "falta informar a agencia da conta" if args[:agencia].nil?
     @numero = args[:numero]
     @agencia = args[:agencia]
     @titular = args[:titular]
