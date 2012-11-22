@@ -19,6 +19,11 @@ describe Banco do
 
     let(:banco){ @banco }
 
+    specify { should respond_to(:localiza_conta_por_titular)}
+    specify { should respond_to(:localiza_conta_por_numero)}
+    specify { should respond_to(:localiza_conta_por_agencia)}
+    specify { should respond_to(:localiza_conta_por_saldo)}
+
     it "deve ser possivel localizar uma conta através do nome do titular" do
       conta = banco.localiza_conta_por_titular('Joao')
       conta.titular.should == 'Joao'
@@ -33,6 +38,13 @@ describe Banco do
     it "deve ser possivel localizar uma conta através da agencia" do
       conta = banco.localiza_conta_por_agencia(10)
       conta.agencia.should == 10
+    end
+
+    it "deve ser possivel localizar uma conta através do saldo" do
+      banco.contas.last.deposita 100
+      conta = banco.localiza_conta_por_saldo(100)
+
+      conta.saldo.should == 100
     end
 
   end

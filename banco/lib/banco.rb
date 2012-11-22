@@ -6,6 +6,29 @@ class Banco
     @contas = []
   end
 
+  def respond_to?(name)
+    if name =~ /localiza_conta_por_(.*)/
+      atributo = $1
+      instance_conta = Conta.new numero:10, agencia: 10
+      instance_conta.respond_to?(atributo)
+    else
+      super
+    end
+  end
+
+  def method_missing(name, *args, &block)
+    # puts "vc chamou o metodo: #{name} como os argumentos #{args.inspect}"
+    # puts "com o bloco: #{block.inspect}"
+    if name =~ /localiza_conta_por_(.*)/
+      atributo = $1
+      valor = args.first
+      localiza{|conta| conta.send(atributo) == valor }
+    else
+      super
+    end
+  end
+
+private
   def localiza(&criterio)
     resultado = nil
     if block_given?
@@ -15,18 +38,6 @@ class Banco
     end
 
     resultado
-  end
-
-  def localiza_conta_por_titular(nome)
-    localiza{ |x| x.titular == nome }
-  end
-
-  def localiza_conta_por_numero(numero)
-    localiza{ |i| i.numero == numero }
-  end
-
-  def localiza_conta_por_agencia(agencia)
-    localiza{ |qualquer_coisa| qualquer_coisa.agencia == agencia}
   end
 
   # os metodos abaixo seriam utilizados para fazer
