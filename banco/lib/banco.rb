@@ -6,13 +6,27 @@ class Banco
     @contas = []
   end
 
-  def localiza_conta_por_titular(nome)
+  def localiza(&criterio)
     resultado = nil
-    for conta in @contas
-      resultado = conta if conta.titular == nome
+    if block_given?
+      for conta in @contas
+        resultado = conta if yield(conta)
+      end
     end
 
     resultado
+  end
+
+  def localiza_conta_por_titular(nome)
+    localiza{ |x| x.titular == nome }
+  end
+
+  def localiza_conta_por_numero(numero)
+    localiza{ |i| i.numero == numero }
+  end
+
+  def localiza_conta_por_agencia(agencia)
+    localiza{ |qualquer_coisa| qualquer_coisa.agencia == agencia}
   end
 
   # os metodos abaixo seriam utilizados para fazer

@@ -24,6 +24,17 @@ describe Banco do
       conta.titular.should == 'Joao'
     end
 
+    it "deve ser possivel localizar uma conta através do seu numero" do
+      conta = banco.localiza_conta_por_numero(12)
+      conta.numero.should == 12
+      conta.titular.should == 'Marcio'
+    end
+
+    it "deve ser possivel localizar uma conta através da agencia" do
+      conta = banco.localiza_conta_por_agencia(10)
+      conta.agencia.should == 10
+    end
+
   end
 
   let(:banco){ Banco.new }
