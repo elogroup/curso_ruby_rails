@@ -1,5 +1,5 @@
 #encoding: utf-8
-require '../lib/conta'
+require 'spec_helper'
 
 describe Conta do
 
