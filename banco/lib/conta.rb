@@ -20,4 +20,13 @@ class Conta
     @saldo = @saldo - valor
   end
 
+  def transfere_para(args={})
+    destino = args[:conta]
+    valor   = args[:valor]
+    raise ArgumentError, "conta invalida" unless destino.respond_to?(:deposita)
+
+    self.saca valor
+    destino.deposita valor
+  end
+
 end

@@ -84,5 +84,25 @@ describe Conta do
       conta.should_not respond_to(:agencia=)
     end
 
+    it "deve ser possivel transferir valores entre contas" do
+      destino = Conta.new numero: 5, agencia: 20
+      conta.deposita 1000
+      conta.transfere_para conta: destino, valor: 600
+      conta.saldo.should == 400
+      destino.saldo.should == 600
+    end
+
+    it "nao deve ser possivel enviar como conta um objeto invalido" do
+      expect{ conta.transfere_para conta: "AAAAAAA", valor: 10000 }.to raise_error(ArgumentError)
+    end
+
+
+
+
+
+
+
+
+
   end
 end
