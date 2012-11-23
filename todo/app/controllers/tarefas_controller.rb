@@ -1,11 +1,12 @@
 class TarefasController < ApplicationController
 
   def new
+    @tarefa = Tarefa.new
   end
 
   def create
-    t = Tarefa.new params[:tarefa]
-    unless t.save
+    @tarefa = Tarefa.new params[:tarefa]
+    unless @tarefa.save
       render :new
     end
     #aqui vou criar uma tarefa nova

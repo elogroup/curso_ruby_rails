@@ -3,13 +3,22 @@
 <form action="/tarefas" method='post'>
   <p>
     <p><label>Descricao</label></p>
-    <textarea cols='60' rows='5' name='tarefa[descricao]'></textarea>
+    <textarea cols='60' rows='5' name='tarefa[descricao]' value='<%=@tarefa.descricao%>'></textarea>
+    <% if @tarefa.errors.messages[:descricao] %>
+    <p>
+      <ul>
+      <% @tarefa.errors.messages[:descricao].each do |e| %>
+        <li><%= e %></li>
+      <%end%>
+      </ul>
+    </p>
+    <%end%>
   </p>
   <p>
     <p>
       <label>Responsavel</label>
     </p>
-    <input type='text' name='tarefa[responsavel]'/>
+    <input type='text' name='tarefa[responsavel]' value='<%=@tarefa.responsavel%>'/>
   </p>
   <p>
     <input type='submit' value='Enviar'/>
