@@ -1,9 +1,9 @@
 <h1>Nova Tarefa</h1>
 
-<form action="/tarefas" method='post'>
+<%= form_for @tarefa do |f| %>
   <p>
-    <p><label>Descricao</label></p>
-    <textarea cols='60' rows='5' name='tarefa[descricao]' value='<%=@tarefa.descricao%>'></textarea>
+    <%= f.label :descricao %>
+    <%= f.text_area :descricao, size: '70x7' %>
     <% if @tarefa.errors.messages[:descricao] %>
     <p>
       <ul>
@@ -15,12 +15,10 @@
     <%end%>
   </p>
   <p>
-    <p>
-      <label>Responsavel</label>
-    </p>
-    <input type='text' name='tarefa[responsavel]' value='<%=@tarefa.responsavel%>'/>
+    <%= f.label :responsavel %>
+    <%= f.text_field :responsavel %>
   </p>
   <p>
-    <input type='submit' value='Enviar'/>
+    <%= f.submit 'Enviar' %>
   </p>
-</form>
+<%end%>
