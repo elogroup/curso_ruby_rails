@@ -1,7 +1,6 @@
 Todo::Application.routes.draw do
-  get "tarefas/new"
 
-  get "tarefa/new"
+  get "tarefas/new" => 'tarefas#new'
+  post "tarefas" => 'tarefas#create'
 
-  match 'nova_tarefa', :controller => :tarefas, :action => :new
 end

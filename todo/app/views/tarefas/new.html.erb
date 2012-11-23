@@ -1,2 +1,17 @@
-<h1>Tarefas#new</h1>
-<p>Find me in app/views/tarefas/new.html.erb</p>
+<h1>Nova Tarefa</h1>
+
+<form action="/tarefas" method='post'>
+  <p>
+    <p><label>Descricao</label></p>
+    <textarea cols='60' rows='5' name='descricao'></textarea>
+  </p>
+  <p>
+    <p>
+      <label>Responsavel</label>
+    </p>
+    <input type='text' name='responsavel'/>
+  </p>
+  <p>
+    <input type='submit' value='Enviar'/>
+  </p>
+</form>
