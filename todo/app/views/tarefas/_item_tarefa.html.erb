@@ -1,0 +1,6 @@
+ <tr>
+  <td><%= item_tarefa.descricao %></td>
+  <td><%= item_tarefa.responsavel %></td>
+  <td><%= link_to 'alterar', edit_tarefa_path(item_tarefa.id) %></td>
+  <td><%= link_to 'remover', tarefa_path(item_tarefa.id), method: :delete  %></td>
+ </tr>

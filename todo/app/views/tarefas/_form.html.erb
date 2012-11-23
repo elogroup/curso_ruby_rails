@@ -1,0 +1,15 @@
+<%= form_for tarefa do |f| %>
+  <p>
+    <%= f.label :descricao %>
+    <%= f.text_area :descricao, size: '70x7' %>
+    <%= error_messages_for tarefa, :descricao %>
+  </p>
+  <p>
+    <%= f.label :responsavel %>
+    <%= f.text_field :responsavel %>
+    <%= error_messages_for tarefa, :responsavel %>
+  </p>
+  <p>
+    <%= f.submit 'Enviar' %>
+  </p>
+<%end%>
