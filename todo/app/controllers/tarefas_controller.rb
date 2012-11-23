@@ -2,6 +2,7 @@ class TarefasController < ApplicationController
 
   def new
     @tarefa = Tarefa.new
+    @projetos = Projeto.by_name
   end
 
   def create
@@ -9,16 +10,19 @@ class TarefasController < ApplicationController
     if @tarefa.save
       redirect_to action: :index
     else
+      @projetos = Projeto.by_name
       render :new
     end
   end
 
   def index
-    @tarefas = Tarefa.all
+    @projeto = Projeto.find params[:projeto_id]
+    @tarefas = @projeto.tarefas
   end
 
   def edit
     @tarefa = Tarefa.find params[:id]
+    @projetos = Projeto.by_name
   end
 
   def update
@@ -27,6 +31,7 @@ class TarefasController < ApplicationController
     if @tarefa.save
       redirect_to action: :index
     else
+      @projetos = Projeto.by_name
       render :edit
     end
   end

@@ -1,5 +1,9 @@
 <%= form_for tarefa do |f| %>
   <p>
+    <%= f.label :projeto_id %>
+    <%= f.collection_select(:projeto_id, @projetos, :id, :nome, prompt: 'selecione um projeto') %>
+  </p>
+  <p>
     <%= f.label :descricao %>
     <%= f.text_area :descricao, size: '70x7' %>
     <%= error_messages_for tarefa, :descricao %>

@@ -1,7 +1,11 @@
 Todo::Application.routes.draw do
-  root to: 'tarefas#index'
+  resources :projetos do
+    resources :tarefas
+  end
 
-  resources :tarefas
+  root to: 'projetos#index'
+
+
 
   # get "tarefas/new" => 'tarefas#new'
   # post "tarefas" => 'tarefas#create'

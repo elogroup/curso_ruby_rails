@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nome: MyString
+  data_entrega: 2012-11-23
+
+two:
+  nome: MyString
+  data_entrega: 2012-11-23
