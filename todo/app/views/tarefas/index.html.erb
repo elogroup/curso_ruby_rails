@@ -1,0 +1,23 @@
+<h1>Lista de Tarefas</h1>
+
+<div>
+  <table>
+    <thead>
+    <tr>
+      <th>Descricao</th>
+      <th>Responsavel</th>
+    </tr>
+    </thead>
+    <tbody>
+     <% @tarefas.each do |tarefa| %>
+     <tr>
+      <td><%= tarefa.descricao %></td>
+      <td><%= tarefa.responsavel %></td>
+     </tr>
+     <% end %>
+    </tbody>
+  </table>
+</div>
+<p>
+  <%= link_to 'Nova Tarefa', tarefas_new_path, :class => 'action' %>
+</p>
