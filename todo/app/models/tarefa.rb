@@ -6,4 +6,12 @@ class Tarefa < ActiveRecord::Base
   validates_presence_of :projeto_id, :message => "falta informar o projeto"
   validates_associated :projeto
 
+  def concluir!
+    self.data_conclusao = DateTime.now
+    self.save
+  end
+
+  def concluida?
+    not self.data_conclusao.nil?
+  end
 end
