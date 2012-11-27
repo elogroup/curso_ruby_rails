@@ -1,28 +1,26 @@
 class TarefasController < ApplicationController
+  before_filter :find_projeto
 
   def new
     @tarefa = Tarefa.new
-    @projetos = Projeto.by_name
   end
 
   def create
-    @tarefa = Tarefa.new params[:tarefa]
+    @tarefa = Tarefa.new params[:tarefa]    
+    @tarefa.projeto = @projeto
     if @tarefa.save
       redirect_to action: :index
     else
-      @projetos = Projeto.by_name
       render :new
     end
   end
 
   def index
-    @projeto = Projeto.find params[:projeto_id]
     @tarefas = @projeto.tarefas
   end
 
   def edit
     @tarefa = Tarefa.find params[:id]
-    @projetos = Projeto.by_name
   end
 
   def update
@@ -31,7 +29,6 @@ class TarefasController < ApplicationController
     if @tarefa.save
       redirect_to action: :index
     else
-      @projetos = Projeto.by_name
       render :edit
     end
   end
@@ -41,4 +38,8 @@ class TarefasController < ApplicationController
     redirect_to action: :index
   end
 
+  private
+  def find_projeto
+    @projeto = Projeto.find(params[:projeto_id])
+  end
 end

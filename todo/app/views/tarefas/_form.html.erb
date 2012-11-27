@@ -1,7 +1,7 @@
-<%= form_for tarefa do |f| %>
+<%= form_for [@projeto, tarefa] do |f| %>
   <p>
     <%= f.label :projeto_id %>
-    <%= f.collection_select(:projeto_id, @projetos, :id, :nome, prompt: 'selecione um projeto') %>
+    
   </p>
   <p>
     <%= f.label :descricao %>
