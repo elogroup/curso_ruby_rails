@@ -1,6 +1,7 @@
- <tr>
+ <tr class="<%= item_tarefa.concluida? ? "concluida" : "" %>" id="tarefa_<%= item_tarefa.id %>">
   <td><%= item_tarefa.descricao %></td>
   <td><%= item_tarefa.responsavel %></td>
   <td><%= link_to 'alterar', edit_projeto_tarefa_path(@projeto, item_tarefa.id) %></td>
   <td><%= link_to 'remover', projeto_tarefa_path(@projeto, item_tarefa.id), method: :delete  %></td>
+  <td><%= link_to('concluir', concluir_projeto_tarefa_path(@projeto, item_tarefa.id), method: :post, remote: true, id: "concluir_" + item_tarefa.id.to_s) unless item_tarefa.concluida? %></td>
  </tr>

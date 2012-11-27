@@ -1,0 +1,8 @@
+var tarefaId = "<%= @tarefa.id.to_s %>";
+var tdElement = "tarefa_" + tarefaId;
+var concluirTarefaElement = "a#concluir_" + tarefaId;
+var elementJqueryObj = $('#' + tdElement);
+var concluirTarefaJqueryObj = $(concluirTarefaElement);
+
+elementJqueryObj.addClass('concluida');
+concluirTarefaJqueryObj.remove();

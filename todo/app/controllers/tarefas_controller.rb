@@ -17,6 +17,13 @@ class TarefasController < ApplicationController
 
   def index
     @tarefas = @projeto.tarefas
+    
+    respond_to do |format|
+      format.html
+      format.json do 
+        render json: @tarefas.to_json
+      end
+    end
   end
 
   def edit
@@ -36,6 +43,11 @@ class TarefasController < ApplicationController
   def destroy
     Tarefa.destroy params[:id]
     redirect_to action: :index
+  end
+
+  def concluir
+    @tarefa = Tarefa.find params[:id]
+    @tarefa.concluir!
   end
 
   private

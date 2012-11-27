@@ -1,6 +1,10 @@
 Todo::Application.routes.draw do
   resources :projetos do
-    resources :tarefas
+    resources :tarefas do
+      member do
+        post 'concluir'
+      end
+    end
   end
 
   root to: 'projetos#index'
@@ -13,6 +17,5 @@ Todo::Application.routes.draw do
   # get "tarefas/:id/edit" => 'tarefas#edit', as: 'tarefas_edit'
   # put "tarefas/:id" => 'tarefas#update', as: 'tarefa'
   # delete "tarefas/:id" => 'tarefas#destroy'
-
-
+  
 end
