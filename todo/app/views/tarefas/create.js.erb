@@ -1,0 +1,6 @@
+<% if @saved_successfully%>
+  $('#form-tarefa').dialog('close');
+  window.location.reload();
+<% else %>
+  alert('Erros foram encontrados.\n\nPor favor, preencha todos os campos!');
+<% end %>

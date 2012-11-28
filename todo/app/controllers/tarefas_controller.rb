@@ -3,16 +3,13 @@ class TarefasController < ApplicationController
 
   def new
     @tarefa = Tarefa.new
+    render layout: nil
   end
 
   def create
     @tarefa = Tarefa.new params[:tarefa]    
     @tarefa.projeto = @projeto
-    if @tarefa.save
-      redirect_to action: :index
-    else
-      render :new
-    end
+    @saved_successfully = @tarefa.save
   end
 
   def index

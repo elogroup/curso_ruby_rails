@@ -1,13 +1,12 @@
 <h1>Tarefas do projeto <%= @projeto.nome %></h1>
-
 <div>
   <table>
     <thead>
     <tr>
       <th>Descricao</th>
       <th>Responsavel</th>
-      <th><th/>
-      <th><th/>
+      <th></th>
+      <th></th>
       <th></th>
     </tr>
     </thead>
@@ -16,6 +15,23 @@
     </tbody>
   </table>
 </div>
+
+<div id="form-tarefa" style="display:none;">
+
+</div>
+
 <p>
-  <%= link_to 'Nova Tarefa', new_projeto_tarefa_path(@projeto), :class => 'action' %>
+  <%= link_to 'Nova Tarefa', "javascript:", :class => 'action', id: "nova-tarefa" %>
 </p>
+
+<script type="text/javascript">
+  var newTaskFormComponent = 'form-tarefa';
+
+  $('a#nova-tarefa').click(function(){
+    $('#' + newTaskFormComponent).load("<%= new_projeto_tarefa_path(@projeto) %>").dialog({
+      title: "Adicionar Nova Tarefa",
+      width: 650,
+      height: 300
+    });
+  });
+</script>
