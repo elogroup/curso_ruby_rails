@@ -1,6 +1,8 @@
 <% if @saved_successfully%>
   $('#form-tarefa').dialog('close');
-  window.location.reload();
+  // window.location.reload();
+  var newTbodyHtml = "<%= escape_javascript(render partial: 'item_tarefa', collection: @tarefas) %>";
+  $('tbody#tarefas-list').html(newTbodyHtml);
 <% else %>
   alert('Erros foram encontrados.\n\nPor favor, preencha todos os campos!');
 <% end %>

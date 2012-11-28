@@ -10,6 +10,7 @@ class TarefasController < ApplicationController
     @tarefa = Tarefa.new params[:tarefa]    
     @tarefa.projeto = @projeto
     @saved_successfully = @tarefa.save
+    @tarefas = @projeto.tarefas    
   end
 
   def index

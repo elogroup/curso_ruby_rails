@@ -10,15 +10,13 @@
       <th></th>
     </tr>
     </thead>
-    <tbody>
+    <tbody id="tarefas-list">
       <%= render partial: 'item_tarefa', collection: @tarefas %>
     </tbody>
   </table>
 </div>
 
-<div id="form-tarefa" style="display:none;">
-
-</div>
+<div id="form-tarefa" style="display:none;"></div>
 
 <p>
   <%= link_to 'Nova Tarefa', "javascript:", :class => 'action', id: "nova-tarefa" %>
