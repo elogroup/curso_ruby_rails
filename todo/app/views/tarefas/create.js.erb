@@ -1,8 +1,8 @@
 <% if @saved_successfully%>
   $('#form-tarefa').dialog('close');
   // window.location.reload();
-  var newTbodyHtml = "<%= escape_javascript(render partial: 'item_tarefa', collection: @tarefas) %>";
-  $('tbody#tarefas-list').html(newTbodyHtml);
+  var newTableLine = "<%= escape_javascript(render partial: 'item_tarefa', locals: {item_tarefa: @tarefa}) %>";
+  $('tbody#tarefas-list').append(newTableLine);
 <% else %>
   alert('Erros foram encontrados.\n\nPor favor, preencha todos os campos!');
 <% end %>
