@@ -7,12 +7,14 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @projetos.each do |projeto| %>
   <tr>
     <td><%= projeto.nome %></td>
     <td><%= projeto.data_entrega %></td>
+    <td><%= link_to 'Tarefas do Projeto', projeto_tarefas_path(projeto) %></td>
     <td><%= link_to 'Show', projeto %></td>
     <td><%= link_to 'Edit', edit_projeto_path(projeto) %></td>
     <td><%= link_to 'Destroy', projeto, confirm: 'Are you sure?', method: :delete %></td>
